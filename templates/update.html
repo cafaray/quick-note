@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<% {% block head %}
+{% endblock %} %>
+
+<% {% block body %}
+
+    {% if error|length>0 %}
+    <div style="font-color:red">
+        <span> {{ error }} </span>
+    </div>
+    {% endif %}
+    
+    <div class="content">
+        <h1>Task Updater</h1>
+        <form action="/update/{{task.id}}" method="POST">
+            <label>Task</label>
+            <input type="text" name="content" placeholder="Add task" id="content" value="{{task.content}}" />
+            <input type="submit" value="Update task" />
+        </form>
+
+    </div>
+{% endblock %}
